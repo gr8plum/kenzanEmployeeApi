@@ -19,9 +19,6 @@ public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom {
     @Transactional
     public void insertEmployee(Employee employee) {
 
-        System.out.println("in insertEmployee repository - Employee: " + employee.toString());
-
-
       entityManager.createNativeQuery("INSERT INTO employee (first_name, middle_name, last_name, date_of_birth, date_of_employment, status) VALUES (?,?,?,?,?,?)")
                 .setParameter(1, employee.getFirstName())
                 .setParameter(2, employee.getMiddleName())

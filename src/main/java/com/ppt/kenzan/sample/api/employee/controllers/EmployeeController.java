@@ -38,14 +38,12 @@ public class EmployeeController {
 
     @GetMapping(path="/employees/{id}")
     Employee getEmployee(@PathVariable("id") Long id) {
-        System.out.println("in getEmployee controller - find Employee: " + id);
         return employeeRepository.findEmployee(id).get();
     }
 
     @PostMapping(path="/employees/")
     public @ResponseBody
     void addEmployee(@RequestBody Employee employee) {
-                System.out.println("in addEmployee controller - Employee: " + employee.toString());
         employeeRepository.insertEmployee(employee);
     }
 
